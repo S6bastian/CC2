@@ -35,7 +35,6 @@ int main(){
             p++;
         }
         else{
-            cout<<"a"<<endl;
             aux=q;
             while(p!=q){
                 swap_val(q,q-1);
