@@ -27,7 +27,7 @@ int main(){
     //cout<<n<<endl;
     p=arr;
     q=arr+(n/2);
-    //for(int i=0; i<n; i++){
+
     while(q<arr+n-1){
         if(p==q){
             q++;
@@ -39,27 +39,10 @@ int main(){
             swap_val(p,q);
             p++;
         }
-        print_arr(arr);
+        //print_arr(arr);
     }
 
-    //print_arr(arr);    
+    print_arr(arr);    
 
     return 0;
 }
-
-/*
-for(int i=0; i<n; i++){
-
-    if(p==q){
-        q=arr+(n-1);
-        }
-    if(*p<*q){
-        p++;
-    }
-    else{
-        swap_val(p,q);
-        p++;
-    }
-    print_arr(arr);
-}
-*/
