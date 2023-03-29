@@ -1,0 +1,1 @@
+Calculadora de módulos permite hallar la suma, resta, multiplicación e inversa de modulos, además que los positiviza.
