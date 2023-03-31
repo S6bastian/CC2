@@ -4,6 +4,7 @@
 #include <cstdlib>
 
 using namespace std;
+
 void positivizador(int &n, int mod){
 
     if (n >= mod) {
@@ -18,30 +19,22 @@ void suma(int n1, int n2, int mod) {
     int result;
     result = n1 + n2;
     positivizador(result, mod);
-    
-    cout << "Suma:" << endl;
-    cout << n1 << " mod " << mod << " + " << n2 << " mod " << mod << " = " << result << " mod " << mod << endl;
 }
 
 void resta(int n1, int n2, int mod) {
     int result;
     result = n1 - n2;
     positivizador(result, mod);
-
-    cout << "Resta:" << endl;
-    cout << n1 << " mod " << mod << " - " << n2 << " mod " << mod << " = " << result << " mod " << mod << endl;
 }
 
-void multiplicacion(int n1, int n2, int mod) {
+int multiplicacion(int n1, int n2, int mod) {
     int result;
     result = n1 * n2;
     positivizador(result, mod);
-
-    cout << "Multiplicacion:" << endl;
-    cout << n1 << " mod " << mod << " * " << n2 << " mod " << mod << " = " << result << " mod " << mod << endl;
+    return result;
 }
 
-void inverso(int B, int A) { //B=n1 y A=mod
+int inverso(int B, int A) { //B=n1 y A=mod
     int q, R = 0, P0 = 0, P1 = 1, Px, mod = A;
     while (R != 1) {
         q = A / B;
@@ -51,7 +44,7 @@ void inverso(int B, int A) { //B=n1 y A=mod
         if (R == 0) {
             cout << "Inverso: " << endl;
             cout << "Este numero no tiene inversa modular" << endl;
-            break;
+            return 0;
         }
 
         A = B;
@@ -59,26 +52,53 @@ void inverso(int B, int A) { //B=n1 y A=mod
         P0 = P1;
         P1 = Px;
     }
-    if (R != 0) {
-        cout << "Inverso: " << endl;
-        positivizador(Px, mod);
-        cout << Px << " mod " << mod << endl;
-    }
+
+    positivizador(Px, mod);
+    return Px;
 }
 
-void encriptado(string text) {
+void encriptado(int key) {
+    string text="";
+    string aux_text="";
+    int aux;
 
     ifstream plain("PLAIN.txt");
     getline(plain,text);
+    cout<<text.size()<<endl;
+    for(int i=0; i<text.size(); i++){
+        aux=static_cast<int>(text[i]);
+        aux=multiplicacion(aux,key,256);
+        aux_text+=static_cast<char>(aux);
+    }
+    cout<<aux_text.size()<<endl;
+    ofstream cifer("CIFER.txt");
+    cifer<<aux_text;
+}
 
-    cout<<text<<endl;
-    
+void desencriptado(int key){
+    string text="";
+    string aux_text="";
+    int aux;
+
+    key=inverso(key,256);
+
+    ifstream cifer("CIFER.txt");
+    getline(cifer,text);
+    cout<<text.size()<<endl;
+    for(int i=0; i<text.size(); i++){
+        aux=static_cast<int>(text[i]);
+        aux=multiplicacion(aux,key,256);
+        aux_text+=static_cast<char>(aux);
+    }
+    cout<<aux_text.size()<<endl;
+    ofstream plainz("PLAINZ.txt");
+    plainz<<aux_text;
 }
 
 int main() {
-    int n1, mod, opc;
+    int n1, mod, opc, key=21;
     bool itr=1;
-    string text;
+    string text,a;
     while (itr) {
         system("cls");
         cout << "Opciones" << endl;
@@ -90,12 +110,13 @@ int main() {
         case 1:
             system("cls");
             cout << "Encriptando..."<<endl;
-            encriptado(text);
+            encriptado(key);
             system("pause");
             break;
         case 2:
             system("cls");
             cout << "Desencriptando..."<<endl;
+            desencriptado(key);
             system("pause");
             break;
         case 3:
