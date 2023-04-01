@@ -1,0 +1,1 @@
+El programa consiste en un pequeño sorting  de un array en si mismo, el cual originalmente posee una mitad de numeros impares y otra de numeros pares ordenados de menor a mayor respectivamente.
