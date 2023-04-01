@@ -58,41 +58,35 @@ int inverso(int B, int A) { //B=n1 y A=mod
 }
 
 void encriptado(int key) {
-    string text="";
-    string aux_text="";
-    int aux;
+    string text;
+    char c;
 
-    ifstream plain("PLAIN.txt");
-    getline(plain,text);
-    cout<<text.size()<<endl;
-    for(int i=0; i<text.size(); i++){
-        aux=static_cast<int>(text[i]);
-        aux=multiplicacion(aux,key,256);
-        aux_text+=static_cast<char>(aux);
+    ifstream plain("PLAIN.txt",ios::binary);
+    while(plain.get(c)){
+        //c=static_cast<int>(c);
+        c=multiplicacion(c,key,256);
+        text.push_back(c);
     }
-    cout<<aux_text.size()<<endl;
+    
     ofstream cifer("CIFER.txt");
-    cifer<<aux_text;
+    cifer<<text;
 }
 
 void desencriptado(int key){
-    string text="";
-    string aux_text="";
-    int aux;
+    string text;
+    char c;
 
     key=inverso(key,256);
 
-    ifstream cifer("CIFER.txt");
-    getline(cifer,text);
-    cout<<text.size()<<endl;
-    for(int i=0; i<text.size(); i++){
-        aux=static_cast<int>(text[i]);
-        aux=multiplicacion(aux,key,256);
-        aux_text+=static_cast<char>(aux);
+    ifstream cifer("CIFER.txt",ios::binary);
+    while(cifer.get(c)){
+        //c=static_cast<int>(c);
+        c=multiplicacion(c,key,256);
+        text.push_back(c);
     }
-    cout<<aux_text.size()<<endl;
+
     ofstream plainz("PLAINZ.txt");
-    plainz<<aux_text;
+    plainz<<text;
 }
 
 int main() {
