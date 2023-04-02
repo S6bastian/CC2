@@ -61,14 +61,14 @@ void encriptado(int key) {
     string text;
     char c;
 
-    ifstream plain("PLAIN.txt",ios::binary);
+    ifstream plain("PLAIN.txt", ios::binary);
     while(plain.get(c)){
         //c=static_cast<int>(c);
         c=multiplicacion(c,key,256);
         text.push_back(c);
     }
     
-    ofstream cifer("CIFER.txt");
+    ofstream cifer("CIFER.txt", ios::binary);
     cifer<<text;
 }
 
@@ -78,14 +78,14 @@ void desencriptado(int key){
 
     key=inverso(key,256);
 
-    ifstream cifer("CIFER.txt",ios::binary);
+    ifstream cifer("CIFER.txt", ios::binary);
     while(cifer.get(c)){
         //c=static_cast<int>(c);
         c=multiplicacion(c,key,256);
         text.push_back(c);
     }
 
-    ofstream plainz("PLAINZ.txt");
+    ofstream plainz("PLAINZ.txt", ios::binary);
     plainz<<text;
 }
 
