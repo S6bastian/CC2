@@ -32,6 +32,7 @@ int queue::pop(){
         for (int *i=inicio; i<top; i++){
             std::swap(*i,*(i+1));
         }
+        top--;
     }
     else if (!top){
         std::cout<<"Pila vacia"<<std::endl;

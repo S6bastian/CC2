@@ -1,0 +1,2 @@
+Hacer un programa que tenga una clase cola (queue), la clase pila (stack) ya fue  creada con anterioridad por el profesor.
+La clase cola al igual que la clase stack debe poseer una función pop y push, recordar que la locacion de estas funciona de distinta forma ya que una de estas es una pila y la otra es una cola.

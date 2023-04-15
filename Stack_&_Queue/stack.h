@@ -34,10 +34,9 @@ int stack::pop(){
         if(top<inicio){
             top=nullptr;
         }
-        else{
-            std::cout<<"Pila vacia"<<std::endl;
-        }
-        *top=0;
+    }
+    else{
+        std::cout<<"Pila vacia"<<std::endl;
     }
     return tmp;
 }
