@@ -19,13 +19,29 @@ int main(){
     cout<<"----------------------------------"<<endl;
 
     queue arr2;
+    arr2.push(1);
     arr2.push(2);
-    arr2.push(8);
-    arr2.push(17);
+    arr2.push(3);
     arr2.print();
     cout<<"Popped:"<<arr2.pop()<<endl;
-    arr2.push(29);
+    arr2.push(4);
     arr2.print();
+    arr2.push(5);
+    arr2.push(6);
+    arr2.push(7);
+    arr2.push(8);
+    arr2.push(9);
+    arr2.push(10);
+    arr2.push(11);
+    arr2.push(12);
+    arr2.push(13);
+    arr2.print();
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    arr2.push(14);
+    arr2.print();
+    arr2.push(15);
+
+
 
     cout<<"----------------------------------"<<endl;
 

@@ -2,7 +2,7 @@
 
 class queue{
     int A[10];
-    int *inicio=A, *fin=A+9, *top=nullptr;
+    int *inicio=A, *fin=A+9, *head=nullptr, *tail=nullptr;
 
     public:
         void push(int v);
@@ -11,32 +11,49 @@ class queue{
 };
 
 void queue::push(int v){
-    if (!top){  //Al ser nullptr (lista vacia) será 0
-        top=inicio;
-        *top=v;
-    }
-    else if(top<fin){
-        top++;
-        *top=v;
+    if (!head){  //Al ser nullptr (lista vacia) será 0
+        head=inicio;
+        tail=inicio;
+        *tail=v;
     }
     else{
-        std::cout<<"Pila llena"<<std::endl;
+        tail++;
+
+        if(tail==fin+1){
+            tail=inicio;
+        }
+
+        if(tail==head){
+            std::cout<<"Pila llena"<<std::endl;
+            tail--;
+        }
+        else{
+            *tail=v;
+        }
     }
 }
 
 int queue::pop(){
     int tmp=0;
-    if (top){
-        tmp=*inicio;
-        *inicio=0;
-        for (int *i=inicio; i<top; i++){
-            std::swap(*i,*(i+1));
-        }
-        top--;
-    }
-    else if (!top){
+
+    if(!head){
         std::cout<<"Pila vacia"<<std::endl;
     }
+    else{
+        tmp=*head;
+        head++;
+        
+        if(head==fin+1){
+            head=inicio;
+        }
+
+        if(head==tail+1 || (tail==fin && head==inicio)){
+            std::cout<<"Pila vacia"<<std::endl;
+            head--;
+            tmp=0;
+        }
+    }
+
     return tmp;
 }
 
