@@ -49,7 +49,8 @@ int queue::pop(){
 
         if(head==tail+1 || (tail==fin && head==inicio)){
             std::cout<<"Pila vacia"<<std::endl;
-            head--;
+            head=nullptr;
+            tail=nullptr;
             tmp=0;
         }
     }
