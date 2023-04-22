@@ -24,7 +24,7 @@ void queue::push(int v){
         }
 
         if(tail==head){
-            std::cout<<"Pila llena"<<std::endl;
+            std::cout<<"Cola llena"<<std::endl;
             tail--;
         }
         else{
@@ -37,7 +37,7 @@ int queue::pop(){
     int tmp=0;
 
     if(!head){
-        std::cout<<"Pila vacia"<<std::endl;
+        std::cout<<"Cola vacia"<<std::endl;
     }
     else{
         tmp=*head;
@@ -48,10 +48,9 @@ int queue::pop(){
         }
 
         if(head==tail+1 || (tail==fin && head==inicio)){
-            std::cout<<"Pila vacia"<<std::endl;
+            //std::cout<<"Cola vacia"<<std::endl;
             head=nullptr;
             tail=nullptr;
-            tmp=0;
         }
     }
 

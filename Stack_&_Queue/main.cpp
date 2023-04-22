@@ -6,6 +6,7 @@ using namespace std;
 
 int main(){
     cout<<"----------------------------------"<<endl;
+    cout<<"----------------PILA-----------------"<<endl;
 
     stack arr1;
     arr1.push(1);
@@ -17,6 +18,7 @@ int main(){
     arr1.print();
 
     cout<<"----------------------------------"<<endl;
+    cout<<"----------------COLA------------------"<<endl;
 
     queue arr2;
     arr2.push(1);
@@ -40,8 +42,21 @@ int main(){
     arr2.push(14);
     arr2.print();
     arr2.push(15);
-
-
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    arr2.print();
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    cout<<"Popped:"<<arr2.pop()<<endl;
+    arr2.print();
+    arr2.push(500);
+    arr2.print();
 
     cout<<"----------------------------------"<<endl;
 
