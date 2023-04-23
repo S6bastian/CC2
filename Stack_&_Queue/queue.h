@@ -26,6 +26,9 @@ void queue::push(int v){
         if(tail==head){
             std::cout<<"Cola llena"<<std::endl;
             tail--;
+            if(tail==inicio-1){
+                tail=fin;
+            }
         }
         else{
             *tail=v;
