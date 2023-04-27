@@ -21,3 +21,26 @@ int main() {
      cout<<*p<<endl;
  
 }
+
+/*OUTPUT
+
+Tama├▒o del array A es 4
+Tama├▒o del array B es 5
+Esto est├í en B: HOLA-Fin
+Esto est├í en A: HOLA╚▬%D°☺-Fin
+H
+O
+L
+A
+
+H
+O
+L
+A
+
+¸
+ 
+d
+{
+
+*/

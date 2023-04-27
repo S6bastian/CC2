@@ -62,3 +62,49 @@ int main() {
   print2(A,2);
 
 }
+
+
+/*OUTPUT
+
+Recorrido dentro de main
+0x66c9bff870 -> 0x66c9bff870 -> 11
+ 0x66c9bff870 -> 11
+   11 12 13 14 15
+ 0x66c9bff884 -> 16
+   16 17 18 19 10
+
+0x66c9bff898 -> 0x66c9bff898 -> 21
+ 0x66c9bff898 -> 21
+   21 22 23 24 25
+ 0x66c9bff8ac -> 26
+   26 27 28 29 20
+
+
+Recorrido dentro de print1
+0x66c9bff870 -> 0x66c9bff870 -> 11
+ 0x66c9bff870 -> 11
+   11 12 13 14 15
+ 0x66c9bff884 -> 16
+   16 17 18 19 10
+
+0x66c9bff898 -> 0x66c9bff898 -> 21
+ 0x66c9bff898 -> 21
+   21 22 23 24 25
+ 0x66c9bff8ac -> 26
+   26 27 28 29 20
+
+
+Recorrido dentro de print2
+0x66c9bff870 -> 0x66c9bff870 -> 11
+ 0x66c9bff870 -> 11
+   11 12 13 14 15
+ 0x66c9bff884 -> 16
+   16 17 18 19 10
+
+0x66c9bff898 -> 0x66c9bff898 -> 21
+ 0x66c9bff898 -> 21
+   21 22 23 24 25
+ 0x66c9bff8ac -> 26
+   26 27 28 29 20
+
+*/

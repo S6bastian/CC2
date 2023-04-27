@@ -44,3 +44,13 @@ int main() {
   lowermio(C);
   cout<<C<<endl;
 }
+
+/*OUTPUT
+
+Hola Mundo 123
+321 odnuM aloH
+Hola Mundo 123
+HOLA MUNDO 123
+hola mundo 123
+
+*/

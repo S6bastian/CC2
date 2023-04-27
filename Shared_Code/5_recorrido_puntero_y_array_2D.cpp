@@ -44,3 +44,25 @@ int main() {
   print2(A,2);
 
 }
+
+/*OUTPUT
+
+Recorrido dentro de main  
+0x6843dff690 -> 1
+1 2 3 4 5
+0x6843dff6a4 -> 6
+6 7 8 9 0
+
+Recorrido dentro de print1
+0x6843dff690 -> 1
+1 2 3 4 5
+0x6843dff6a4 -> 6
+6 7 8 9 0
+
+Recorrido dentro de print2
+0x6843dff690 -> 1
+1 2 3 4 5
+0x6843dff6a4 -> 6
+6 7 8 9 0
+
+*/

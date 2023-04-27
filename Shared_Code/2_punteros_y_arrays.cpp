@@ -34,3 +34,24 @@ int main() {
   cout<<"imprimo *A "<<*A<<endl;
 
 }
+
+/*OUTPUT
+
+size of main 20
+dentro de func ********
+size of func 8
+imprimo A 0x31e6fffe40
+imprimo *A 1
+imprimo *A+1 2
+imprimo *(A+1) 3
+imprimo *(A+3) 7
+imprimo *A 3
+fin func ****
+imprimo A 0x31e6fffe40
+imprimo *A 1
+imprimo *A+1 2
+imprimo *(A+1) 3
+imprimo *(A+3) 7
+imprimo *A 1
+
+*/

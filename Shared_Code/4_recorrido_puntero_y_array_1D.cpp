@@ -27,3 +27,14 @@ int main() {
   cout<<endl;
   print2(A,10);
 }
+
+/*OUTPUT
+
+Recorrido dentro de main    
+1 2 3 4 5 6 7 8 9 0
+Recorrido dentro de print1  
+1 2 3 4 5 6 7 8 9 0
+Recorrido dentro de print2  
+1 2 3 4 5 6 7 8 9 0
+
+*/

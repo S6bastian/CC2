@@ -36,3 +36,30 @@ int main() {
      cout<< *p <<endl;
   
 }
+
+/*OUTPUT
+
+Sin ordenar
+1
+5
+9
+7
+5
+3
+2
+6
+4
+8
+Ordenado   
+1
+2
+3
+4
+5
+5
+6
+7
+8
+9
+
+*/

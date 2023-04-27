@@ -20,3 +20,12 @@ int main() {
   cout<< (*pf)(5,3)<<endl;
 
 }
+
+/*OUTPUT
+
+8
+8
+15
+15
+
+*/

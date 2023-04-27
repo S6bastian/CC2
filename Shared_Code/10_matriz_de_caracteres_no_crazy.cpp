@@ -29,3 +29,15 @@ int main() {
       cout<<*p<<endl;
 
 }
+
+/*OUTPUT
+
+Hugo
+Paco
+Luis
+---------------
+oguH
+ocaP
+siuL
+
+*/
