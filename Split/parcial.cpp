@@ -4,7 +4,7 @@ using namespace std;
 
 void print(int *);
 void swap(int *, int*);
-void reposition(int *);
+void reposition(int *); //poner todos los 0 al final sin cambiar orden de los otros numeros
 
 int main(){
     int A[]={1,0,3,7,89,0,345,0};
