@@ -12,7 +12,9 @@ int main(){
     int A[9]={1,2,3,4,5,6,7,8,9};
     split(A, even);
     print(A);
-    
+    split(A, odd);
+    print(A);
+
     return 0;
 }
 
@@ -29,7 +31,7 @@ void swap(int *A, int *B){
 }
 void print(int *A){
     cout<<"{";
-    for(int *i=A; i<A+1; i++){
+    for(int *i=A; i<A+9; i++){
         cout<<" "<<*i;
     }
     cout<<" }"<<endl;
@@ -38,20 +40,16 @@ void print(int *A){
 
 void split(int *A, bool (*pf)(int)){
     int *start=A;
-    int *end=start+1;
-    for(start; start<A-1;){
-        if(pf(*start)){
-            start++;
-            end++;
-        }
-        else{
-            for(int *i=end; i<A+1;i++){
-                if(!*i%2==0){
-                    swap(start,i);
+    int *end=A+9;
+    for(int *i=start; i<end;i++){
+        if(!pf(*i)){
+            for(int *j=i+1; j<end;j++){
+                if(pf(*j)){
+                    swap(i,j);
                     break;
                 }
             }
-        }
+        }   
     }
 }
 
