@@ -52,8 +52,9 @@ void pairs(int *A){
     while(cont!=0){
         cont=0;
         for(int *i=A; i<end; i++){
-            if(*i==*i+1){
-                *i=0; *(i+1)=0;
+            if(*i==*(i+1)&&*i!=0){
+                *i=0;
+                *(i+1)=0;
                 for(int *j=i+1; j<end; j++){
                     swap(j-1,j);
                 }
