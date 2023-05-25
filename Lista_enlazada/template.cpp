@@ -33,7 +33,7 @@ bool pila<T>::pop(T &v) {
         nodo<T>* tmp = top;
         top = top->next;
         delete tmp;
-        RES = true;;
+        RES = true;
     }
     return RES;
 }
@@ -52,3 +52,11 @@ int main() {
             cout << x << endl;
     }
 }
+
+/* OUTPUT
+
+3
+2
+1
+
+*/
