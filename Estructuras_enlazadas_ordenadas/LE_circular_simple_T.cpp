@@ -30,12 +30,15 @@ bool LE<T>::find(T x, nodo<T> *&pos) {
     bool key = false;
     pos = nullptr;
 
-    for (nodo<T> *p = head; p && p->valor <= x && pos->valor < p->valor; p = p->next) {
+    for (nodo<T> *p = head; p && p->valor <= x; p = p->next){
         if (p->valor == x) {
             key = true;
         }
         else{
             pos = p;
+            if(p->next==head){
+                break;
+            }
         }
     }
 
@@ -52,7 +55,7 @@ void LE<T>::add(T x) {
         }
         else {
             head = new nodo<T>(x, head);
-            head->next = head; 
+            head->next = head;
         }
     }
 }
@@ -69,7 +72,12 @@ bool LE<T>::del(T x) {
         }
         else {
             tmp = head;
-            head = nullptr;
+            if(head == head->next){
+                head = nullptr;
+            }
+            else{
+                //NO HAY FORMA, quizas creando head y tail funciona
+            }
         }
         delete tmp;
     }
@@ -79,11 +87,12 @@ bool LE<T>::del(T x) {
 
 template <class T>
 void LE<T>::print() {
-    cout << "HEAD -> ";
+    cout << "HEAD";
     for (nodo<T>* p = head; p && p->valor < p->next->valor; p=p->next) {
-        cout << p->valor << " -> ";
-        if(p->valor < p->next->valor){
+        cout << " -> " << p->valor;
+        if(p->next->valor > p->next->next->valor){
             cout << " -> " << p->next->valor;
+            cout << " -> " << p->next->next->valor;
         }
     }
     cout << " -> ..." << endl;
@@ -95,7 +104,7 @@ int main() {
     list.add(1);
     list.add(3);
     list.add(5);
-    //list.del(5);
+    list.del(5);
     list.print();
 
     return 0;
