@@ -5,7 +5,7 @@ using namespace std;
 template <class T>
 struct nodo {
     T valor;
-    nodo <T>* next;
+    nodo <T> *next;
     nodo(T v, nodo<T>* n = nullptr) {
         valor = v;
         next = n;
@@ -15,7 +15,8 @@ struct nodo {
 
 template <class T>
 struct LE {    //Lista Enlazada
-    nodo<T>* head=NULL;
+    nodo<T> *head=nullptr;
+    nodo<T> *tail=nullptr;
 
     bool find(T x, nodo<T> *&pos);
     void add(T x);
@@ -24,21 +25,17 @@ struct LE {    //Lista Enlazada
     //~LE();
 };
 
-// "pos" está 1 antes a "p"
 template <class T>
 bool LE<T>::find(T x, nodo<T> *&pos) {
     bool key = false;
     pos = nullptr;
 
-    for (nodo<T> *p = head; p && p->valor <= x; p = p->next){
+    for (nodo<T>* p = head; p && p->valor <= x && pos != tail && key==false; p = p->next) {
         if (p->valor == x) {
             key = true;
         }
         else{
             pos = p;
-            if(p->next==head){
-                break;
-            }
         }
     }
 
@@ -52,10 +49,15 @@ void LE<T>::add(T x) {
     if (!find(x, pos)) {
         if (pos) {
             pos->next = new nodo<T>(x, pos->next);
+            if(tail->valor < pos->next->valor){
+                tail=pos->next;
+            }
+
         }
         else {
             head = new nodo<T>(x, head);
             head->next = head;
+            tail = head;
         }
     }
 }
@@ -66,18 +68,17 @@ bool LE<T>::del(T x) {
     bool key = find(x, pos);
 
     if (key) {
-        if (pos) {
+        if (head!=tail) {
             tmp = pos->next;
             pos->next = tmp->next;
+            if (tmp==tail){
+                tail=pos;
+            }
         }
         else {
             tmp = head;
-            if(head == head->next){
-                head = nullptr;
-            }
-            else{
-                //NO HAY FORMA, quizas creando head y tail funciona
-            }
+            head = nullptr;
+            tail = nullptr;
         }
         delete tmp;
     }
@@ -88,11 +89,11 @@ bool LE<T>::del(T x) {
 template <class T>
 void LE<T>::print() {
     cout << "HEAD";
-    for (nodo<T>* p = head; p && p->valor < p->next->valor; p=p->next) {
-        cout << " -> " << p->valor;
-        if(p->next->valor > p->next->next->valor){
-            cout << " -> " << p->next->valor;
-            cout << " -> " << p->next->next->valor;
+    for (nodo<T> *p = head; p; p=p->next) {
+        cout  << " -> " << p->valor;
+        if(p == tail){
+            cout  << " -> " << p->next->valor;
+            break;
         }
     }
     cout << " -> ..." << endl;
@@ -104,7 +105,13 @@ int main() {
     list.add(1);
     list.add(3);
     list.add(5);
+    list.add(5);
+    list.print();
+
     list.del(5);
+    list.del(3);
+    list.del(1);
+
     list.print();
 
     return 0;
