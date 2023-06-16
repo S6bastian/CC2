@@ -1,3 +1,7 @@
+/*  NOTAS
+    -PROBABLEMENTE EXISTA UN MEJOR CÓDIGO
+*/
+
 #include <iostream>
 
 using namespace std;
@@ -27,19 +31,26 @@ struct LE {    //Lista Enlazada
 
 template <class T>
 bool LE<T>::find(T x, nodo<T> *&pos) {
-    bool key = false;
+    bool found = false;
     pos = nullptr;
 
-    for (nodo<T>* p = head; p && p->valor <= x && pos != tail && key==false; p = p->next) {
+    for (nodo<T>* p = head; p && pos != tail; pos = p, p = p->next) {
         if (p->valor == x) {
-            key = true;
+            if(head==p){
+                pos=p;
+            }
+            found = true;
+            break;
         }
-        else{
-            pos = p;
+        if (x < p->valor){
+            if (head->valor > x){
+                pos = p;
+            }
+            break;
         }
     }
 
-    return key;
+    return found;
 }
 
 template <class T>
@@ -48,11 +59,17 @@ void LE<T>::add(T x) {
 
     if (!find(x, pos)) {
         if (pos) {
-            pos->next = new nodo<T>(x, pos->next);
-            if(tail->valor < pos->next->valor){
-                tail=pos->next;
+            if(head->valor > x){
+                head = new nodo<T>(x,pos);
+                tail->next = head;
             }
-
+            else {
+                pos->next = new nodo<T>(x, pos->next);
+                
+                if(tail->valor < pos->next->valor){
+                    tail = pos->next;
+                }
+            }
         }
         else {
             head = new nodo<T>(x, head);
@@ -69,11 +86,19 @@ bool LE<T>::del(T x) {
 
     if (key) {
         if (head!=tail) {
-            tmp = pos->next;
-            pos->next = tmp->next;
-            if (tmp==tail){
-                tail=pos;
+            if (pos==head){
+                tmp=pos;
+                head=pos->next;
+                tail->next=head;
             }
+            else{
+                tmp = pos->next;
+                pos->next = tmp->next;
+                if (tmp==tail){
+                    tail=pos;
+                }
+            }
+            
         }
         else {
             tmp = head;
@@ -102,17 +127,22 @@ void LE<T>::print() {
 
 int main() {
     LE<int> list;
+    list.add(8);
     list.add(1);
-    list.add(3);
+    list.add(7);
     list.add(5);
-    list.add(5);
+    list.add(0);
     list.print();
 
-    list.del(5);
-    list.del(3);
+    //list.del(8);
     list.del(1);
-
+    //list.del(7);
+    //list.del(5);
+    //list.del(0);
     list.print();
+
+
+    //list.print();
 
     return 0;
 }
