@@ -115,8 +115,6 @@ void merge(nodo<T> *&H1, nodo<T> *&H2){
                 break;
             }
         }
-        
-        
     }
     if(p2->valor >= ap1->valor && p1 == nullptr && p2 != nullptr){
         ap1->next = p2;
