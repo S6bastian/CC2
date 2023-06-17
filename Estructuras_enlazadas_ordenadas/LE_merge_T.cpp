@@ -91,6 +91,7 @@ void merge(nodo<T> *&H1, nodo<T> *&H2){
     ap1 = H1;
     p1 = ap1->next;
     p2 = H2;
+
     while(H2){
         if(p2->valor < H1->valor){
             H2 = p2->next;
@@ -107,7 +108,6 @@ void merge(nodo<T> *&H1, nodo<T> *&H2){
             ap1 = p2;
             p2 = H2;
         }
-        
         else{
             ap1 = ap1->next;
             p1 = p1->next;
@@ -116,6 +116,7 @@ void merge(nodo<T> *&H1, nodo<T> *&H2){
             }
         }
     }
+    
     if(p2->valor >= ap1->valor && p1 == nullptr && p2 != nullptr){
         ap1->next = p2;
         H2 = nullptr;
