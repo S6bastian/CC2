@@ -1,7 +1,3 @@
-/*  NOTAS
-    -PROBABLEMENTE EXISTA UN MEJOR CÓDIGO
-*/
-
 #include <iostream>
 
 using namespace std;
@@ -124,14 +120,11 @@ int main() {
     list.print();
 
     list.del(8);
-    //list.del(1);
-    //list.del(7);
-    //list.del(5);
-    //list.del(0);
+    list.del(1);
+    list.del(7);
+    list.del(5);
+    list.del(0);
     list.print();
-
-
-    //list.print();
 
     return 0;
 }
