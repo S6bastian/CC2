@@ -31,26 +31,19 @@ struct LE {    //Lista Enlazada
 
 template <class T>
 bool LE<T>::find(T x, nodo<T> *&pos) {
-    bool found = false;
+    bool key = false;
     pos = nullptr;
 
-    for (nodo<T>* p = head; p && pos != tail; pos = p, p = p->next) {
+    for (nodo<T>* p = head; p && p->valor <= x && pos != tail && key == false; p = p->next) {
         if (p->valor == x) {
-            if(head==p){
-                pos=p;
-            }
-            found = true;
-            break;
+            key = true;
         }
-        if (x < p->valor){
-            if (head->valor > x){
-                pos = p;
-            }
-            break;
+        else{
+            pos = p;
         }
     }
 
-    return found;
+    return key;
 }
 
 template <class T>
@@ -58,23 +51,19 @@ void LE<T>::add(T x) {
     nodo<T>* pos;
 
     if (!find(x, pos)) {
-        if (pos) {
-            if(head->valor > x){
-                head = new nodo<T>(x,pos);
-                tail->next = head;
-            }
-            else {
-                pos->next = new nodo<T>(x, pos->next);
-                
-                if(tail->valor < pos->next->valor){
-                    tail = pos->next;
-                }
-            }
-        }
-        else {
+        if(head == nullptr && tail == nullptr){
             head = new nodo<T>(x, head);
-            head->next = head;
             tail = head;
+        }
+        else if(x < head->valor){
+            head = new nodo<T>(x,head);
+            tail->next = head;
+        }
+        else{
+            pos->next = new nodo<T>(x, pos->next);
+            if(pos == tail){
+                tail = pos->next;
+            }
         }
     }
 }
@@ -85,25 +74,25 @@ bool LE<T>::del(T x) {
     bool key = find(x, pos);
 
     if (key) {
-        if (head!=tail) {
-            if (pos==head){
-                tmp=pos;
-                head=pos->next;
-                tail->next=head;
-            }
-            else{
-                tmp = pos->next;
-                pos->next = tmp->next;
-                if (tmp==tail){
-                    tail=pos;
-                }
-            }
-            
-        }
-        else {
+        if (head == tail) {
             tmp = head;
             head = nullptr;
             tail = nullptr;
+        }
+        else if (x == head->valor) {
+            tmp = head;
+            head = head->next;
+            tail->next = head;
+
+        }
+        else if (x == tail->valor) {
+            tmp = tail;
+            tail = pos;
+            tail->next = head;
+        }
+        else {
+            tmp = pos->next;
+            pos->next = tmp->next;
         }
         delete tmp;
     }
@@ -134,8 +123,8 @@ int main() {
     list.add(0);
     list.print();
 
-    //list.del(8);
-    list.del(1);
+    list.del(8);
+    //list.del(1);
     //list.del(7);
     //list.del(5);
     //list.del(0);
