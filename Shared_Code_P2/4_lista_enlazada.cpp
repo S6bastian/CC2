@@ -123,3 +123,19 @@ int main() {
   lista.print();
 
 }
+
+/*OUTPUT
+
+Head->NULL
+Head->5->NULL
+Head->1->5->NULL
+Head->1->3->5->NULL
+Head->1->3->5->7->NULL
+Head->1->3->5->7->NULL
+Head->1->5->7->NULL
+Head->1->5->7->NULL
+Head->1->5->NULL
+Head->5->NULL
+Head->NULL
+
+*/

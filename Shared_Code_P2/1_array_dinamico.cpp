@@ -19,3 +19,10 @@ int main() {
   
   delete []p;
 }
+
+/*OUTPUT
+
+Ingrese la cantidad de elementos 5
+10 11 12 13 14 
+
+*/

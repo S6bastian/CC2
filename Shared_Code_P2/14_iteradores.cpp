@@ -79,3 +79,39 @@ int main() {
   }
 
 }
+
+/*OUTPUT
+
+100
+200
+300
+400
+500
+600
+700
+800
+900
+1000
+-----------------
+Ingrese un n├║mero entero: 7
+Ingrese un n├║mero entero: 6
+Ingrese un n├║mero entero: 5
+Ingrese un n├║mero entero: 4
+Ingrese un n├║mero entero: 3
+Ingrese un n├║mero entero: 2
+Ingrese un n├║mero entero: 1
+Ingrese un n├║mero entero: 9
+Ingrese un n├║mero entero: 8
+Ingrese un n├║mero entero: 11
+7
+6
+5
+4
+3
+2
+1
+9
+8
+11
+
+*/

@@ -65,3 +65,52 @@ int main() {
   cout<<"Tabla de la mult de 5"<<endl;
   b2.op();
 }
+
+/*OUTPUT
+
+Tabla de la suma de 5
+opr(1) = 6
+opr(2) = 7
+opr(3) = 8
+opr(4) = 9
+opr(5) = 10
+opr(6) = 11
+opr(7) = 12
+opr(8) = 13
+opr(9) = 14
+opr(10) = 15
+Tabla de la multiplicaci├│n de 5
+opr(1) = 5
+opr(2) = 10
+opr(3) = 15
+opr(4) = 20
+opr(5) = 25
+opr(6) = 30
+opr(7) = 35
+opr(8) = 40
+opr(9) = 45
+opr(10) = 50
+Tabla de la suma de 5
+opr(1) = 6
+opr(2) = 7
+opr(3) = 8
+opr(4) = 9
+opr(5) = 10
+opr(6) = 11
+opr(7) = 12
+opr(8) = 13
+opr(9) = 14
+opr(10) = 15
+Tabla de la mult de 5
+opr(1) = 5
+opr(2) = 10
+opr(3) = 15
+opr(4) = 20
+opr(5) = 25
+opr(6) = 30
+opr(7) = 35
+opr(8) = 40
+opr(9) = 45
+opr(10) = 50
+
+*/

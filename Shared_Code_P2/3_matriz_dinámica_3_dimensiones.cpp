@@ -63,3 +63,32 @@ for(int i = 0; i<mat;i++)
 
 delete [] p;
 }
+
+/*OUTPUT
+
+Ingrese la cantidad de matrices 3
+Ingrese la cantidad de filas 2
+Ingrese la cantidad de columnas 4
+
+impresi├│n con ├¡ndices
+0 1 2 3
+100 101 102 103
+
+1000 1001 1002 1003
+1100 1101 1102 1103
+
+2000 2001 2002 2003
+2100 2101 2102 2103
+
+
+impresi├│n con punteros
+0 1 2 3
+100 101 102 103
+
+1000 1001 1002 1003
+1100 1101 1102 1103
+
+2000 2001 2002 2003
+2100 2101 2102 2103
+
+*/

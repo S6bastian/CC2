@@ -28,3 +28,10 @@ int main() {
   Ejecuta<suma<int,20>> exe;
   cout<<exe.operador(15)<<endl;
 }
+
+/*OUTPUT
+
+5
+35
+
+*/

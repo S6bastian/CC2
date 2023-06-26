@@ -49,3 +49,18 @@ int main() {
   cout<<"Foo::negate(-6) = "<<bar4(-6,&Foo::negate)<<endl;
 
 }
+
+/*OUTPUT
+
+Prueba de bar1 
+Foo::add(2,4) = 6
+Foo::mult(2,4) = 8
+Prueba de bar2
+Foo::add(3,5) = 8
+Foo::mult(3,5) = 15
+Prueba de bar3
+Foo::negate(6) = -6
+Prueba de bar4
+Foo::negate(-6) = 6
+
+*/

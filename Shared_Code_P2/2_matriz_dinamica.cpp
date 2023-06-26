@@ -42,3 +42,20 @@ cout<<endl<<"impresión con punteros"<<endl;
   
   delete [] p;
 }
+
+/*OUTPUT
+
+Ingrese la cantidad de filas 3
+Ingrese la cantidad de columnas 4
+
+impresi├│n con ├¡ndices
+100 101 102 103        
+200 201 202 203        
+300 301 302 303        
+
+impresi├│n con punteros
+100 101 102 103
+200 201 202 203
+300 301 302 303
+
+*/
